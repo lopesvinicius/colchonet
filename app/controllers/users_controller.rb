@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+		@users = User.all
+	end
+
 	def show
 		@user = User.find(params[:id])
 	end
@@ -32,7 +36,7 @@ class UsersController < ApplicationController
 			render action: :edit		
 		end	
 	end
-	
+
 	private
 	def user_params
 		params.
