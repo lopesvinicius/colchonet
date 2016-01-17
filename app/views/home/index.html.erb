@@ -1,0 +1,6 @@
+<h2>Recently Posted Rooms</h2>
+<ul>
+	<% @rooms.each do |room| %>
+		<%= link_to room.complete_name, room %>
+	<% end %>
+</ul>
