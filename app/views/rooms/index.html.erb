@@ -3,7 +3,7 @@
 <div class="container">
   <h1>Listing Rooms</h1>
   
-  <% if @rooms.size ==1  %>
+  <% if @rooms.size > 0  %>
     <table class="table">
      <thead> 
       <tr> 
@@ -17,7 +17,7 @@
           <tr>
             <td><%= room.title %></td>
             <td><%= room.location %></td>
-            <td><%= room.description %></td>
+            <td><%= truncate(room.description, :length => 35) %></td>
             <td><%= link_to 'Show', room %></td>
             <td><%= link_to 'Edit', edit_room_path(room) %></td>
             <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

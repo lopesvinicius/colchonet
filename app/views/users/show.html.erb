@@ -1,10 +1,33 @@
-<p id="notice"> <%= notice %> </p>
-<h2>Perfil: <%= @user.full_name %></h2>
-
-<ul>
-    <li>Localizaçao: <%= @user.location %></li>
-    <li>Bio: <%= @user.bio %></li>
-</ul>
-
+<div class="container">
+	<% if notice %>
+		<div class="alert alert-warning" role="alert">
+			<p class="notice"><%= notice %></p>
+		</div>
+	<% end %>
+	<div class="row">
+		<div>
+			<h2 class="text-center">
+				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+				<%= @user.full_name %>
+			</h2>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-offset-3 col-md-6">
+			<div class="list-group">
+			  <a href="#" class="list-group-item active">
+			    <strong>Name:</strong> <%= @user.full_name %>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<strong>Location:</strong> <%= @user.location %>
+			  </a>
+			  <a href="#" class="list-group-item">
+			  	<strong>Bio:</strong> <%= truncate(@user.bio, :length => 60) %>
+			  </a>
+			</div>
+		</div>
+	</div>
+</div>
 <%= link_to 'Editar Perfil', edit_user_path(@user) %>
 <%= link_to 'Home', root_path %>
