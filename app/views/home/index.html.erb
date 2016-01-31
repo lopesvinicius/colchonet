@@ -1,6 +1,14 @@
-<h2>Recently Posted Rooms</h2>
-<ul>
-	<% @rooms.each do |room| %>
-		<%= link_to room.complete_name, room %>
+<div class="container">
+	<% if notice %>
+		<div class="alert alert-warning" role="alert">
+			<p class="notice"><%= notice %></p>
+		</div>
 	<% end %>
-</ul>
+
+	<h2>Recently Posted Rooms</h2>
+	<ul>
+		<% @rooms.each do |room| %>
+			<%= link_to room.complete_name, room %>
+		<% end %>
+	</ul>
+</div>

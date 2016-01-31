@@ -1,0 +1,25 @@
+<div class="container">
+	<% if @user_session.errors.any? %>
+	  <div id="error_explanation">
+	    <h3>there are errors here, please check it</h3>
+	    <br />
+	  </div>
+	<% end %>
+
+	<%= form_for @user_session do |f| %>
+		<p>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+			<%= error_tag @user_session, :email %>
+		</p>
+		<p>
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+			<%= error_tag @user_session, :password %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+	<p><%= link_to t('.sign_up'),new_user_path %></p>
+</div>
